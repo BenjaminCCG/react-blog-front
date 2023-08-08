@@ -25,7 +25,9 @@ export default ({ command, mode }: ConfigEnv) => {
         }
       }),
       checker({
-        typescript: true
+        eslint: {
+          lintCommand: 'eslint "./src/**/*.{ts,tsx,js,jsx}"'
+        }
       })
     ],
     // 项目部署的基础路径,

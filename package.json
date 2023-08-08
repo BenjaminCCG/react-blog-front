@@ -12,6 +12,20 @@
     "format": "prettier --write \"./**/*.{html,tsx,ts,js,json,md}\"",
     "prepare": "husky install"
   },
+  "lint-staged": {
+    "*.{vue,js,ts,jsx,tsx}": [
+      "pnpm lint",
+      "pnpm prettier"
+    ]
+  },
+  "config": {
+    "commitizen": {
+      "path": "node_modules/cz-customizable"
+    },
+    "cz-customizable": {
+      "config": "./.cz-config.cjs"
+    }
+  },
   "dependencies": {
     "@babel/eslint-parser": "^7.22.10",
     "antd": "^5.8.2",
@@ -30,9 +44,14 @@
     "@types/react-dom": "^18.2.3",
     "@vitejs/plugin-react": "^4.0.0",
     "amfe-flexible": "^2.2.1",
+    "commitizen": "^4.3.0",
+    "cz-customizable": "^7.0.0",
     "eslint": "^8.39.0",
     "eslint-config-code-style-lint-react-ts": "^3.0.5",
+    "eslint-config-prettier": "^9.0.0",
+    "eslint-plugin-prettier": "^5.0.0",
     "husky": "^8.0.3",
+    "lint-staged": "^13.2.3",
     "postcss-pxtorem": "^6.0.0",
     "prettier": "^2.8.8",
     "sass": "^1.62.1",

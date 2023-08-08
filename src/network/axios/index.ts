@@ -19,13 +19,13 @@ function analysisFilename(contentDisposition: string): string {
 }
 
 class MyAxios {
-  private readonly axiosInstance: AxiosInstance;
+  public readonly axiosInstance: AxiosInstance;
   public constructor(options: AxiosRequestConfig) {
     this.axiosInstance = axios.create(options);
     this.initInterceptors();
   }
 
-  private initInterceptors() {
+  public initInterceptors() {
     // 请求拦截  上传数据的加密处理在这里配置
     this.axiosInstance.interceptors.request.use(
       (config) => {

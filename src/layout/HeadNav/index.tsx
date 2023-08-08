@@ -2,7 +2,7 @@ import React from 'react';
 import { To } from 'react-router-dom';
 import styles from './style/index.module.scss';
 import Typed from 'typed.js';
-
+import logo from '@assets/images/logo.png';
 export default function HeadNav() {
   const menuList = [
     { title: '首页', path: '/' },
@@ -34,7 +34,8 @@ export default function HeadNav() {
     <div className={styles.headerWrap}>
       {/* 导航区域 */}
       <div className={styles.headNav}>
-        <div className={styles.logo}>搜索|LOGO区域</div>
+        {/* <div className={styles.logo}>搜索|LOGO区域</div> */}
+        <img src={logo} alt="" className={styles.logo} />
         <div className={styles.navBar}>
           {menuList.map((item) => {
             return (
