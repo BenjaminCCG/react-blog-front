@@ -1,0 +1,37 @@
+.message {
+  width: 500px;
+  margin: 0 auto;
+  padding: 10px 0;
+  .submit_form,
+  .reply_item {
+    padding: 10px;
+    border: 0.1px solid #ccc;
+    border-radius: 2px;
+    input {
+      margin-bottom: 10px;
+      width: 33%;
+    }
+  }
+  .reply_item {
+    margin-bottom: 6px;
+    &_content {
+      display: flex;
+      flex-direction: column;
+      & > div:last-child {
+        align-self: flex-end;
+        margin-top: 5px;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 991px) {
+  .message {
+    width: 95vw;
+    .submit_form {
+      input {
+        width: 100%;
+      }
+    }
+  }
+}

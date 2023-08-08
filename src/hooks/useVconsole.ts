@@ -1,6 +1,7 @@
-import VConsole from 'vconsole'
+import VConsole from 'vconsole';
 export function useVcosole() {
   if (location.href.includes('#vc')) {
-    new VConsole({ theme: 'dark', maxLogNumber: 1000 })
+    // eslint-disable-next-line no-new
+    new VConsole({ theme: 'dark', maxLogNumber: 1000 });
   }
 }

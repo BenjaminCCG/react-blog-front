@@ -1,6 +1,6 @@
 import SliderBar from '@/components/sliderBar';
 import styles from './style/index.module.scss';
-function Home() {
+function Article() {
   const leftData = [
     {
       img: 'https://oss.cui10.com/uploads/images/img-1682489030435.jpg',
@@ -69,4 +69,4 @@ function Home() {
   );
 }
 
-export default Home;
+export default Article;

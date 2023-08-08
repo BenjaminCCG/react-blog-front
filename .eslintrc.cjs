@@ -1,6 +1,5 @@
 module.exports = {
-  extends: ['alloy', 'alloy/vue', 'alloy/typescript', './.eslintrc-auto-import'],
-  parser: 'vue-eslint-parser',
+  extends: ['alloy', 'alloy/typescript', './.eslintrc-auto-import'],
   parserOptions: {
     parser: {
       js: '@babel/eslint-parser',

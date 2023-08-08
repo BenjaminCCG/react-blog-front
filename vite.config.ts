@@ -5,13 +5,12 @@ import { resolve } from 'path';
 import checker from 'vite-plugin-checker';
 import WindiCSS from 'vite-plugin-windicss';
 import AutoImport from 'unplugin-auto-import/vite';
-import { MuiResolver } from 'unplugin-react-components';
-import Components from 'unplugin-react-components/vite';
+import postCssPxToRem from 'postcss-pxtorem';
 // https://vitejs.dev/config/
 export default ({ command, mode }: ConfigEnv) => {
   const currentEnv = loadEnv(mode, process.cwd());
   console.log('当前模式', command);
-  console.log('当前环境配置', currentEnv); //loadEnv即加载根目录下.env.[mode]环境配置文件
+  console.log('当前环境配置', currentEnv); // loadEnv即加载根目录下.env.[mode]环境配置文件
   return defineConfig({
     plugins: [
       react(),
@@ -24,16 +23,16 @@ export default ({ command, mode }: ConfigEnv) => {
           enabled: true, // Default `false`
           filepath: './.eslintrc-auto-import.json' // Default `./.eslintrc-auto-import.json`
         }
+      }),
+      checker({
+        typescript: true
       })
-      // checker({
-      //   typescript: true
-      // })
     ],
-    //项目部署的基础路径,
+    // 项目部署的基础路径,
     base: currentEnv.VITE_PUBLIC_PATH,
     mode: mode,
     resolve: {
-      //别名
+      // 别名
       alias: {
         '@': resolve(__dirname, './src'),
         '@components': resolve(__dirname, './src/components'),
@@ -43,9 +42,9 @@ export default ({ command, mode }: ConfigEnv) => {
         '@hooks': resolve(__dirname, './src/hooks')
       }
     },
-    //服务
+    // 服务
     server: {
-      //自定义代理---解决跨域
+      // 自定义代理---解决跨域
       proxy: {
         // 选项写法
         '/api': {
@@ -61,14 +60,21 @@ export default ({ command, mode }: ConfigEnv) => {
         sass: {
           javascriptEnabled: true
         }
+      },
+      postcss: {
+        plugins: [
+          postCssPxToRem({
+            rootValue: 75,
+            propList: ['*']
+          })
+        ]
       }
     },
-    //构建
+    // 构建
     build: {
-      outDir: `docs`, //输出路径
-      //构建后是否生成 source map 文件
-      sourcemap: mode != 'production'
-      //打包去掉打印信息 保留debugger vite3需要单独安装terser才行
+      // 构建后是否生成 source map 文件
+      sourcemap: mode !== 'production'
+      // 打包去掉打印信息 保留debugger vite3需要单独安装terser才行
       // minify: 'terser',
       // terserOptions: {
       //   compress: {

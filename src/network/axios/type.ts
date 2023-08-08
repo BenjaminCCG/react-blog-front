@@ -17,7 +17,7 @@ export interface UploadStream {
 export interface AxiosDownload {
   url: string
   data?: object
-  fileName?: string //用于自定义文件名
+  fileName?: string // 用于自定义文件名
   otherConfig?: AxiosRequestConfig
   controller?: AbortController
   onDownloadProgress?: (progressEvent: AxiosProgressEvent) => void

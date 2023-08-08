@@ -1,4 +1,3 @@
-import SliderBar from '@/components/sliderBar';
 import styles from './style/index.module.scss';
 function Home() {
   const leftData = [
@@ -43,28 +42,24 @@ function Home() {
       author: 'cui10'
     }
   ];
-
   return (
-    <div className={styles.article_wrap}>
-      <div className={styles.article_content}>
-        {leftData.map((item, index) => {
-          return (
-            <div className={styles.article_content_item} key={index}>
-              <img src={item.img} alt="" />
-              <div className={styles.article_content_item_info}>
-                <div className={styles.article_content_item_info_title}>{item.title}</div>
-                <div className={styles.article_content_item_info_desc}>{item.desc}</div>
-                <div className={styles.article_content_item_info_bottom}>
-                  <div className={styles.article_content_item_info_bottom_author}>作者：{item.author}</div>
-                  <div className={styles.article_content_item_info_bottom_time}>{item.time}</div>
-                  <div className={styles.article_content_item_info_bottom_type}>{item.type}</div>
-                </div>
+    <div className={styles.life_wrap}>
+      {leftData.map((item, index) => {
+        return (
+          <div className={styles.life_wrap_item} key={index}>
+            <img src={item.img} alt="" />
+            <div className={styles.life_wrap_item_info}>
+              <div className={styles.life_wrap_item_info_title}>{item.title}</div>
+              <div className={styles.life_wrap_item_info_desc}>{item.desc}</div>
+              <div className={styles.life_wrap_item_info_bottom}>
+                <div className={styles.life_wrap_item_info_bottom_author}>作者：{item.author}</div>
+                <div className={styles.life_wrap_item_info_bottom_time}>{item.time}</div>
+                <div className={styles.life_wrap_item_info_bottom_type}>{item.type}</div>
               </div>
             </div>
-          );
-        })}
-      </div>
-      <SliderBar />
+          </div>
+        );
+      })}
     </div>
   );
 }
