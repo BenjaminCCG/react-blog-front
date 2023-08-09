@@ -89,23 +89,23 @@ class MyAxios {
     );
   }
 
-  get<T>(url: string, data?: object): Promise<T> {
+  public get<T>(url: string, data?: object): Promise<T> {
     return this.axiosInstance.get(url, { params: data });
   }
 
-  post<T>(url: string, data?: object): Promise<T> {
+  public post<T>(url: string, data?: object): Promise<T> {
     return this.axiosInstance.post(url, data);
   }
 
-  put<T>(url: string, data?: object): Promise<T> {
+  public put<T>(url: string, data?: object): Promise<T> {
     return this.axiosInstance.put(url, data);
   }
 
-  delete<T>(url: string, data?: object): Promise<T> {
+  public delete<T>(url: string, data?: object): Promise<T> {
     return this.axiosInstance.delete(url, data);
   }
 
-  upload<T = any>(data: Upload): Promise<T> {
+  public upload<T = any>(data: Upload): Promise<T> {
     const { url, formData, controller, onUploadProgress } = data;
     return this.axiosInstance.post(url, formData, {
       headers: { 'Content-Type': 'multipart/form-data' },
@@ -114,7 +114,7 @@ class MyAxios {
     });
   }
 
-  async uploadStream<T = any>(data: UploadStream): Promise<T> {
+  public async uploadStream<T = any>(data: UploadStream): Promise<T> {
     const { url, file, controller, onUploadProgress } = data;
     /** generateSHA 生成文件SHA256 hash  用于标识文件唯一性 往往会用上 这里会用到crypto-js库 **/
     // async function generateSHA(file: File): Promise<string> {
@@ -132,7 +132,7 @@ class MyAxios {
     });
   }
 
-  axiosDownload(params: AxiosDownload): void {
+  public axiosDownload(params: AxiosDownload): void {
     const { url, data, controller, fileName, onDownloadProgress } = params;
     this.axiosInstance
       .get<Blob>(url, {
@@ -158,7 +158,7 @@ class MyAxios {
       });
   }
 
-  urlDownload(params: UrlDownload) {
+  public urlDownload(params: UrlDownload) {
     const { fileName, serveBaseUrl, fileUrl } = params;
     const a = document.createElement('a');
     a.style.display = 'none';
