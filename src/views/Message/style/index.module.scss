@@ -7,6 +7,7 @@
     padding: 10px;
     border: 0.1px solid #ccc;
     border-radius: 2px;
+    background: #fff;
     input {
       margin-bottom: 10px;
       width: 33%;
@@ -14,6 +15,7 @@
   }
   .reply_item {
     margin-bottom: 6px;
+    font-size: 6px;
     &_content {
       display: flex;
       flex-direction: column;

@@ -1,6 +1,12 @@
 import SliderBar from '@/components/sliderBar';
 import styles from './style/index.module.scss';
 function Home() {
+  const navigator = useNavigate();
+
+  const handleClick = (id: number) => {
+    navigator('/article?id=' + id);
+  };
+
   const leftData = [
     {
       img: 'https://oss.cui10.com/uploads/images/img-1682489030435.jpg',
@@ -49,7 +55,7 @@ function Home() {
       <div className={styles.article_content}>
         {leftData.map((item, index) => {
           return (
-            <div className={styles.article_content_item} key={index}>
+            <div className={styles.article_content_item} key={index} onClick={() => handleClick(index)}>
               <img src={item.img} alt="" />
               <div className={styles.article_content_item_info}>
                 <div className={styles.article_content_item_info_title}>{item.title}</div>

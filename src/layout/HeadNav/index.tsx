@@ -15,7 +15,7 @@ export default function HeadNav() {
 
   React.useEffect(() => {
     const typed = new Typed(el.current, {
-      strings: ['Hello', 'I am Benjamin', 'Welcome to my blog!'],
+      strings: ['Hello,I am Benjamin', 'Welcome !'],
       typeSpeed: 50
     });
     return () => {
@@ -30,16 +30,22 @@ export default function HeadNav() {
     router(path);
   };
 
+  const location = useLocation();
+
   return (
     <div className={styles.headerWrap}>
       {/* 导航区域 */}
       <div className={styles.headNav}>
         {/* <div className={styles.logo}>搜索|LOGO区域</div> */}
-        <img src={logo} alt="" className={styles.logo} />
+        <img src={logo} alt="" className={`${styles.logo}`} />
         <div className={styles.navBar}>
           {menuList.map((item) => {
             return (
-              <div key={item.path} className={styles.menuItem} onClick={() => menuClick(item.path)}>
+              <div
+                key={item.path}
+                className={`${styles.menuItem} ${location.pathname === item.path ? styles.active : ''}`}
+                onClick={() => menuClick(item.path)}
+              >
                 {item.title}
               </div>
             );
