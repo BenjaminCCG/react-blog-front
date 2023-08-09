@@ -1,5 +1,5 @@
 # ci.yml
-name: Vue3 Template Cli CI
+name: react-blog-front
 on:
   push:
     branches:
@@ -14,8 +14,8 @@ jobs:
 
       - name: Install and Build # 安装依赖、打包，如果提前已打包好无需这一步
         run: |
-          npm install
-          npm run build
+          yarn install
+          yarn build
 
       - name: copy dist fil with scp
         uses: wlixcc/SFTP-Deploy-Action@v1.2.4
