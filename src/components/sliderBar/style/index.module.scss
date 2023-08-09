@@ -33,18 +33,33 @@
     margin-top: 8px;
     background: #fff;
     border-radius: 2px;
-    padding: 2px 4px;
+    // padding: 2px 4px;
     &_title {
       text-align: center;
       font-size: 6px;
       padding: 4px 0;
     }
+    .hoverRef{
+      transition: top .1s ease;
+      background: #efefef;
+      border-right: 2px solid #282828;
+      left: 0;
+      top: 0;
+      box-sizing: border-box;
+      height: 25px;
+    }
     .article_list_item {
       color: #808695;
-      padding: 2px 6px;
+      box-sizing: border-box;
+      height: 25px;
+      line-height: 25px;
+      padding-left: 6px;
       border-bottom: 0.1px solid #efefef;
       font-size: 6px;
       cursor: pointer;
+      &:hover{
+        color: #000;
+      }
       &:last-child {
         border: none;
       }

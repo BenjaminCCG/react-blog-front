@@ -13,15 +13,29 @@ export default function SliderBar() {
     { label: 'CSS', value: 7 }
   ];
 
-  const bg = useRef<HTMLDivElement | null>(null);
-  useEffect(() => {
-    bg.current!.style.height = (document.querySelector('.article_item') as HTMLDivElement).offsetHeight + 'px';
-    console.log(bg.current);
-  }, []);
+  const hoverRef = useRef<HTMLDivElement | null>(null);
 
-  const handleOver = (e: React.MouseEvent) => {
-    bg.current!.style.top = (e.target as HTMLDivElement).offsetTop + 'px';
+  const handleEnter = (e: React.MouseEvent) => {
+    hoverRef.current!.style.top = (e.target as HTMLDivElement).offsetTop + 'px';
   };
+  const [searchParams, setSearchParams] = useSearchParams();
+
+  const setPosition = () => {
+    const current = Number(searchParams.get('type')) || 0;
+    hoverRef.current!.style.top =
+      (document.querySelectorAll('.article_item')[current] as HTMLDivElement).offsetTop + 'px';
+  };
+
+  const handleClick = (idx: number) => {
+    setSearchParams({
+      ...searchParams,
+      type: String(idx)
+    });
+  };
+
+  useEffect(() => {
+    setPosition();
+  }, []);
   return (
     <div className={styles.slider_bar}>
       <div className={styles.user_info}>
@@ -33,15 +47,18 @@ export default function SliderBar() {
       {/* 文章分类 */}
       <div className={styles.article}>
         <div className={styles.article_title}>文章分类</div>
-        <div className={`${styles.article_list} relative`}>
-          <div
-            ref={bg}
-            className=" bg-blue-300 absolute w-full opacity-40"
-            style={{ transition: 'all 0.1s ease-in-out' }}
-          ></div>
-          {rightData.map((item) => {
+        <div className={`${styles.article_list} relative`} onMouseLeave={setPosition}>
+          <div ref={hoverRef} className={`${styles.hoverRef} absolute top-0 left-0 w-full cursor-pointer `}></div>
+          {rightData.map((item, idx) => {
             return (
-              <div className={`${styles.article_list_item} article_item`} onMouseOver={handleOver} key={item.value}>
+              <div
+                className={`${styles.article_list_item} ${
+                  Number(searchParams.get('type')) === idx ? '!text-black' : ''
+                } article_item relative z-10`}
+                onClick={() => handleClick(idx)}
+                onMouseEnter={handleEnter}
+                key={item.value}
+              >
                 {item.label}
               </div>
             );
