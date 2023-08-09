@@ -39,7 +39,7 @@
           this.x = this.fn.x(this.x, this.y);
           this.y = this.fn.y(this.y, this.y);
           this.r = this.fn.r(this.r);
-          if (this.x > window.innerWidth || this.x < 0 || this.y > window.innerHeight || this.y < 0) {
+          if (this.x > window?.innerWidth || this.x < 0 || this.y > window?.innerHeight || this.y < 0) {
             this.r = getRandom('fnr');
             if (Math.random() > 0.4) {
               this.x = getRandom('x');
@@ -47,7 +47,7 @@
               this.s = getRandom('s');
               this.r = getRandom('r');
             } else {
-              this.x = window.innerWidth;
+              this.x = window?.innerWidth;
               this.y = getRandom('y');
               this.s = getRandom('s');
               this.r = getRandom('r');
@@ -82,10 +82,10 @@
           var ret, random;
           switch (option) {
             case 'x':
-              ret = Math.random() * window.innerWidth;
+              ret = Math.random() * window?.innerWidth;
               break;
             case 'y':
-              ret = Math.random() * window.innerHeight;
+              ret = Math.random() * window?.innerHeight;
               break;
             case 's':
               ret = Math.random();
@@ -117,16 +117,16 @@
 
         function startSakura() {
           requestAnimationFrame =
-            window.requestAnimationFrame ||
-            window.mozRequestAnimationFrame ||
-            window.webkitRequestAnimationFrame ||
-            window.msRequestAnimationFrame ||
-            window.oRequestAnimationFrame;
+            window?.requestAnimationFrame ||
+            window?.mozRequestAnimationFrame ||
+            window?.webkitRequestAnimationFrame ||
+            window?.msRequestAnimationFrame ||
+            window?.oRequestAnimationFrame;
           var canvas = document.createElement('canvas'),
             cxt;
           staticx = true;
-          canvas.height = window.innerHeight;
-          canvas.width = window.innerWidth;
+          canvas.height = window?.innerHeight;
+          canvas.width = window?.innerWidth;
           canvas.setAttribute('style', 'position: fixed;left: 0;top: 0;pointer-events: none;');
           canvas.setAttribute('id', 'canvas_sakura');
           document.getElementsByTagName('body')[0].appendChild(canvas);
@@ -159,8 +159,8 @@
 
         window.onresize = function () {
           var canvasSnow = document.getElementById('canvas_snow');
-          canvasSnow.width = window.innerWidth;
-          canvasSnow.height = window.innerHeight;
+          canvasSnow.width = window?.innerWidth;
+          canvasSnow.height = window?.innerHeight;
         };
 
         img.onload = function () {
@@ -171,7 +171,7 @@
           if (staticx) {
             var child = document.getElementById('canvas_sakura');
             child.parentNode.removeChild(child);
-            window.cancelAnimationFrame(stop);
+            window?.cancelAnimationFrame(stop);
             staticx = false;
           } else {
             startSakura();
