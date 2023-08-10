@@ -1,31 +1,41 @@
 import React from 'react';
 import styles from './style/index.module.scss';
-import { Input, Divider } from 'antd';
-const { TextArea } = Input;
+import avator from '@/assets/images/avator.jpeg';
+import { Divider, Button } from 'antd';
+import InputEmoji from 'react-input-emoji';
 const messageList = [
   { name: '张三', value: '你好', createTime: '2021-10-15' },
   { name: '李四', value: '你好', createTime: '2021-10-15' },
   { name: '王五', value: '你好', createTime: '2021-10-15' }
 ];
 export default function Message() {
+  const [value, setValue] = useState('');
+  const handleSubmit = () => {
+    console.log(value, '提交');
+  };
   return (
     <div className={styles.message}>
       <div className={styles.submit_form}>
-        <Input size="large" placeholder="大侠，留下您的大名" />
-        <TextArea rows={4} placeholder="请留下您的宝贵意见" />
+        <div className={styles.submit_form_title}>发表留言</div>
+        <InputEmoji value={value} onChange={setValue} placeholder="" />
+        <Button type="primary" onClick={handleSubmit}>
+          发送~
+        </Button>
       </div>
-
       <Divider />
       {messageList.map((item, index) => {
         return (
-          <div className={styles.reply_item} key={index}>
-            <div className={styles.reply_item_header}>{item.name}</div>
-            <Divider />
-            <div className={styles.reply_item_content}>
-              <div>{item.value}</div>
-              <div>{item.createTime}</div>
+          <React.Suspense key={index}>
+            <div className={styles.reply_item}>
+              <img src={avator} alt="" />
+              <div className={styles.reply_item_content}>
+                <div className={styles.reply_item_content_name}>{item.name}</div>
+                <div className={styles.reply_item_content_time}>{item.createTime}</div>
+                <div className={styles.reply_item_content_desc}>{item.value}</div>
+              </div>
             </div>
-          </div>
+            <Divider />
+          </React.Suspense>
         );
       })}
     </div>
