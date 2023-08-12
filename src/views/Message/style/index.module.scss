@@ -11,7 +11,6 @@
   .reply_item {
     padding: 6px;
     &_title {
-      font-size: 8px;
       font-weight: bold;
       margin-bottom: 8px;
     }
@@ -24,7 +23,6 @@
   }
   .reply_item {
     margin-bottom: 6px;
-    font-size: 6px;
     display: flex;
     img {
       border-radius: 50%;
@@ -36,13 +34,19 @@
       flex-direction: column;
       &_name {
         font-weight: bold;
-        font-size: 8px;
       }
       &_time {
         color: #999;
         flex: 1;
       }
     }
+  }
+}
+
+@media screen and (min-width: 992px) {
+  .submit_form,
+  .reply_item{
+    font-size: 8px;
   }
 }
 

@@ -11,9 +11,9 @@ export default function HeadNav() {
     { title: '关于我', path: '/about' }
   ];
 
-  const el = React.useRef(null);
+  const el = useRef(null);
 
-  React.useEffect(() => {
+  useEffect(() => {
     const typed = new Typed(el.current, {
       strings: ['Hello,I am Benjamin', 'Welcome !'],
       typeSpeed: 50

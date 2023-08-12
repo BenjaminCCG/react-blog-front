@@ -54,7 +54,8 @@ export default ({ command, mode }: ConfigEnv) => {
           changeOrigin: true,
           rewrite: (path) => path.replace(/^\/api/, '')
         }
-      }
+      },
+      host: '0.0.0.0'
     },
     css: {
       // css预处理器

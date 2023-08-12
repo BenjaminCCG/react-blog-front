@@ -20,9 +20,6 @@ dependencies:
   axios:
     specifier: ^1.4.0
     version: 1.4.0
-  emoji-picker-react:
-    specifier: ^4.4.10
-    version: 4.4.10(react@18.2.0)
   eslint-config-alloy:
     specifier: ^5.1.0
     version: 5.1.0(@babel/eslint-parser@7.22.10)(@typescript-eslint/parser@5.59.2)(eslint@8.39.0)(typescript@5.0.4)
@@ -35,9 +32,6 @@ dependencies:
   react-dom:
     specifier: ^18.2.0
     version: 18.2.0(react@18.2.0)
-  react-emotor:
-    specifier: ^1.2.0
-    version: 1.2.0
   react-input-emoji:
     specifier: ^5.1.1
     version: 5.1.1(prop-types@15.8.1)(react-dom@18.2.0)(react@18.2.0)
@@ -2288,11 +2282,6 @@ packages:
     engines: {node: '>=0.8'}
     dev: true
 
-  /clsx@1.2.1:
-    resolution: {integrity: sha512-EcR6r5a8bj6pu3ycsa/E/cKVGuTgZJZdsyUYHOksG/UHIiKfjxzRxYJpyVBwYaQeOvghal9fcc4PidlgzugAQg==}
-    engines: {node: '>=6'}
-    dev: false
-
   /codemirror@6.0.1(@lezer/common@1.0.3):
     resolution: {integrity: sha512-J8j+nZ+CdWmIeFIGXEFbFPtpiYacFMDR8GlHK3IyHQJMCaVRfGx9NT+Hxivv1ckLWPvNdZqndbr/7lVhrf/Svg==}
     dependencies:
@@ -2660,16 +2649,6 @@ packages:
 
   /emoji-mart@5.5.2:
     resolution: {integrity: sha512-Sqc/nso4cjxhOwWJsp9xkVm8OF5c+mJLZJFoFfzRuKO+yWiN7K8c96xmtughYb0d/fZ8UC6cLIQ/p4BR6Pv3/A==}
-    dev: false
-
-  /emoji-picker-react@4.4.10(react@18.2.0):
-    resolution: {integrity: sha512-/5o57w8BKiCHklyqfYCeUlm00R9tdm2ZmJd0p6Q3/Ul7E7eMh+/FduuRFn3UVQCl5F6i4kOdREMz7EJ7YI1vMg==}
-    engines: {node: '>=10'}
-    peerDependencies:
-      react: '>=16'
-    dependencies:
-      clsx: 1.2.1
-      react: 18.2.0
     dev: false
 
   /emoji-regex@8.0.0:
@@ -5170,10 +5149,6 @@ packages:
       loose-envify: 1.4.0
       react: 18.2.0
       scheduler: 0.23.0
-    dev: false
-
-  /react-emotor@1.2.0:
-    resolution: {integrity: sha512-moEIuBffjEALIds5YA1nzenTgiwIntK1XHjJPJm8SaqLycBXwOBioJYftgaYI4Y8saPV7X3ahmBjfpty5O+2EQ==}
     dev: false
 
   /react-input-emoji@5.1.1(prop-types@15.8.1)(react-dom@18.2.0)(react@18.2.0):
