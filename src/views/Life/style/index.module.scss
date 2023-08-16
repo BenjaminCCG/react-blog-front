@@ -8,6 +8,12 @@
     border-radius: 2px;
     height: 65px;
     margin-bottom: 10px;
+    transition: all 0.2s;
+    cursor: pointer;
+    &:hover {
+      transform: scale(1.05);
+      box-shadow: 0 0 10px 0 #3c4858;
+    }
     img {
       width: 45%;
       border-radius: 2px 0 0 2px;
@@ -15,6 +21,7 @@
     &_info {
       padding: 5px;
       position: relative;
+      flex: 1;
       &_title {
         font-size: 7px;
         font-weight: bold;
@@ -22,6 +29,10 @@
       &_desc {
         font-size: 6px;
         margin-top: 5px;
+        display: -webkit-box;
+        -webkit-box-orient: vertical;
+        overflow: hidden;
+        -webkit-line-clamp: 2;
       }
       &_bottom {
         position: absolute;

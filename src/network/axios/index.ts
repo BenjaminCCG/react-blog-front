@@ -36,11 +36,9 @@ class MyAxios {
           // @ts-ignore
           config.headers['authorization'] = `Bearer ${token}`;
         }
-        console.log(`本次请求的config信息：`, config);
         return config;
       },
       (error) => {
-        console.log(`axios请求拦截部分报错，错误信息error`, error);
         return Promise.reject(error);
       }
     );
@@ -50,8 +48,7 @@ class MyAxios {
       (response) => {
         // resBaseInfo 针对接口返回有基本格式的情况下 如上面导入的resBaseInfo基本请求返回体 基本返回体由rsCode rsCause 和 data构成
         const { data } = response;
-        console.log('data', data);
-        if (data.rsCode !== 0) {
+        if (data.code !== 200) {
           alert(`${data.rsCause}`);
           return Promise.reject(data.data); // 假设后台的错误信息放在了data中  这里根据情况修改
         }
@@ -63,8 +60,6 @@ class MyAxios {
         }
       },
       (error: AxiosError) => {
-        console.log('axios响应拦截部分发生错误，错误信息为', error);
-
         // 需要对错误进行提示？
         // 以下Message是ElementUI库的全局提示组件 当然我们可以更改
         // 若ElementUI 需要在头部引入   import { Message } from 'element-ui';

@@ -50,12 +50,13 @@ export default ({ command, mode }: ConfigEnv) => {
       proxy: {
         // 选项写法
         '/api': {
-          target: 'http://xxxxxx.com',
+          target: 'http://127.0.0.1:8090/',
           changeOrigin: true,
           rewrite: (path) => path.replace(/^\/api/, '')
         }
       },
-      host: '0.0.0.0'
+      host: '0.0.0.0',
+      port: 3000
     },
     css: {
       // css预处理器
@@ -68,7 +69,8 @@ export default ({ command, mode }: ConfigEnv) => {
         plugins: [
           postCssPxToRem({
             rootValue: 75,
-            propList: ['*']
+            propList: ['*'],
+            selectorBlackList: ['md-editor-']
           })
         ]
       }

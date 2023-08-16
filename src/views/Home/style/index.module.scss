@@ -25,6 +25,7 @@
       &_info {
         padding: 5px;
         position: relative;
+        flex: 1;
         &_title {
           font-size: 7px;
           font-weight: bold;
@@ -32,6 +33,10 @@
         &_desc {
           font-size: 6px;
           margin-top: 5px;
+          display: -webkit-box;
+          -webkit-box-orient: vertical;
+          overflow: hidden;
+          -webkit-line-clamp: 2;
         }
         &_bottom {
           position: absolute;

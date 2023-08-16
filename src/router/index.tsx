@@ -5,6 +5,7 @@ import About from '@/views/About';
 import Life from '@/views/Life';
 import Message from '@/views/Message';
 import Article from '@/views/Article';
+import LifeDetail from '@/views/LifeDetail';
 export default function Router() {
   return useRoutes([
     {
@@ -26,6 +27,10 @@ export default function Router() {
     {
       path: '/article',
       element: <Article />
+    },
+    {
+      path: '/lifeDetail',
+      element: <LifeDetail />
     }
   ]);
 }

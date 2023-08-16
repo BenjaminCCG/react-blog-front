@@ -39,8 +39,8 @@
       font-size: 6px;
       padding: 4px 0;
     }
-    .hoverRef{
-      transition: top .1s ease;
+    .hoverRef {
+      transition: top 0.1s ease;
       background: #efefef;
       border-right: 2px solid #282828;
       left: 0;
@@ -57,7 +57,7 @@
       border-bottom: 0.1px solid #efefef;
       font-size: 6px;
       cursor: pointer;
-      &:hover{
+      &:hover {
         color: #000;
       }
       &:last-child {
