@@ -20,7 +20,7 @@ function LifeDetail() {
     <div className={styles.article_wrap}>
       <div className={styles.article_content} id="md">
         <h2>{lifeDetail.title}</h2>
-        <p className=" flex justify-between">
+        <p className={`flex justify-between ${styles.article_info}`}>
           <span>作者：Benjamin</span>
           <span>日期：{lifeDetail.createTime}</span>
         </p>

@@ -18,11 +18,17 @@ export default function SliderBar() {
       (document.querySelectorAll('.article_item')[current] as HTMLDivElement)?.offsetTop + 'px';
   };
 
-  const handleClick = (idx: number) => {
-    setSearchParams({
-      ...searchParams,
-      type: String(idx)
-    });
+  const router = useNavigate();
+  const { pathname } = useLocation();
+  const handleClick = (id: number) => {
+    if (pathname === '/article') {
+      router('/?type=' + id);
+    } else {
+      setSearchParams({
+        ...searchParams,
+        type: String(id)
+      });
+    }
   };
 
   const { typeList, setTypeList } = useBusinessStore();

@@ -32,7 +32,15 @@
     width: 95vw;
     .article_content {
       max-width: 100%;
+      h2 {
+        font-size: 36px;
+      }
+      .article_info {
+        font-size: 30px;
+        padding: 0 10px;
+      }
     }
+
     .article_content_item {
       flex-direction: column;
       height: auto;
