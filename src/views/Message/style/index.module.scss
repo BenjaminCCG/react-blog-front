@@ -52,32 +52,11 @@
   }
 }
 
-@media screen and (min-width: 992px) {
-  .submit_form,
-  .reply_item {
-    font-size: 8px;
-    &_title {
-      span:first-of-type {
-        font-size: 8px;
-      }
-      span:last-of-type {
-        font-size: 4px;
-      }
-    }
-  }
-}
-
 @media screen and (max-width: 991px) {
   .message {
     width: 95vw;
     :global(.react-emoji .react-input-emoji--input) {
       height: 120px;
-      font-size: 12px;
-    }
-    .submit_form {
-      input {
-        width: 100%;
-      }
     }
     .reply_item {
       img {

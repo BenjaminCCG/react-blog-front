@@ -2,7 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 import App from './App';
 import 'virtual:windi.css';
-import 'amfe-flexible';
+// import 'amfe-flexible';
 import './index.css';
 import { BrowserRouter } from 'react-router-dom';
 import { ConfigProvider } from 'antd';

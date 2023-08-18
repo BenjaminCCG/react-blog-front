@@ -1,5 +1,5 @@
 import styles from './style/index.module.scss';
-import { MdPreview } from 'md-editor-rt';
+import { MdPreview, MdCatalog } from 'md-editor-rt';
 import { queryArticleDetail } from '@/network/api/api';
 import { useMount } from 'react-use';
 
@@ -9,6 +9,7 @@ import { Skeleton } from 'antd';
 
 function About() {
   const [id] = useState('preview-only');
+  const [scrollElement] = useState(document.documentElement);
   const [articleDetail, setArticleDetail] = useState<AT>({
     content: ''
   });
@@ -26,15 +27,20 @@ function About() {
       {loading ? (
         <Skeleton paragraph={{ rows: 8 }} active />
       ) : (
-        <div className={styles.article_content} id="md">
-          <h2>{articleDetail.title}</h2>
-          <MdPreview
-            editorId={id}
-            className={styles.md_preview}
-            modelValue={articleDetail.content as string}
-            previewTheme="smart-blue"
-          />
-        </div>
+        <>
+          <div className={styles.article_content} id="md">
+            <h2>{articleDetail.title}</h2>
+            <MdPreview
+              editorId={id}
+              className={styles.md_preview}
+              modelValue={articleDetail.content as string}
+              previewTheme="smart-blue"
+            />
+          </div>
+          <div className={styles.md_cat}>
+            <MdCatalog editorId={id} scrollElement={scrollElement} />
+          </div>
+        </>
       )}
     </div>
   );

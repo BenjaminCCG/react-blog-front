@@ -11,7 +11,6 @@ import { Skeleton } from 'antd';
 
 function Article() {
   const [id] = useState('preview-only');
-  // const [scrollElement] = useState(document.getElementById('md')!);
   const [articleDetail, setArticleDetail] = useState<AT>({
     content: ''
   });
@@ -46,7 +45,6 @@ function Article() {
             modelValue={articleDetail.content as string}
             previewTheme="smart-blue"
           />
-          {/* <MdCatalog editorId={id} scrollElement={scrollElement} /> */}
         </div>
       )}
       <SliderBar />

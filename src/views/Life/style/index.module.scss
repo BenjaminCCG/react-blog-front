@@ -23,11 +23,9 @@
       position: relative;
       flex: 1;
       &_title {
-        font-size: 7px;
         font-weight: bold;
       }
       &_desc {
-        font-size: 6px;
         margin-top: 5px;
         display: -webkit-box;
         -webkit-box-orient: vertical;
@@ -60,11 +58,7 @@
       }
       &_info {
         padding: 30px;
-        &_title {
-          font-size: 30px;
-        }
         &_desc {
-          font-size: 26px;
           margin: 30px 0;
         }
         &_bottom {

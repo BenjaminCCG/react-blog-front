@@ -34,6 +34,7 @@
     "axios": "^1.4.0",
     "eslint-config-alloy": "^5.1.0",
     "md-editor-rt": "^4.2.2",
+    "postcss-px-to-viewport": "^1.1.1",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-input-emoji": "^5.1.1",
